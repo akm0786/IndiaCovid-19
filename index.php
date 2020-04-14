@@ -1,3 +1,14 @@
+<?php
+
+				$data=file_get_contents('https://api.covid19india.org/data.json');
+				$coronaIndia=json_decode($data,true);
+
+				// echo $coronaIndia['statewise'][1]['state'];
+
+				$totalStates= count($coronaIndia['statewise']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,30 +26,69 @@
   	
   	*{
   		font-family: 'Roboto', sans-serif;
-  		background-color: #fff;
-  	}
+  		/*background-color: #fff;*/
+   	}
+
+
   </style>
 </head>
-<body>
+<body >
 	
-	<div class="main">
+	<div class="main " style="background:orange;">
 		
 
  			<div  style="height:83px;  ">
 			
 			<h3 class=" p-3 pd-3 text-center text-uppercase "  style="background-color:#2c3e50; color:white; padding-bottom: 7px;"  >	india covid-19 live update </h3>
 			
+		
+
+
 			</div>
 
     
   </div>
-  
+  				<h3 class="text-uppercase m-0 p-3 text-center" style="background-color: #FFE53B;
+background-image: -webkit-linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+background-image: -moz-linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+background-image: -o-linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+">total covid-19 cases in india</h3>
+
+<div class="table-responsive">
+			<table class="table text-center table-striped table-hover" >
+				<thead>
+				<tr>
+					<th class="text-capitalize "  style="background-color:white;color:#17A2B8; ">LastUpdateTime</th>		
+							
+					<th class="text-capitalize " style="background-color:white;color:red; ">Confirmed</th>		
+					<th class="text-capitalize " style="background-color:white;color:#007bff; ">Active</th>		
+					<th class="text-capitalize " style="background-color:white;color:#28a745; ">Recovered</th>
+					<th class="text-capitalize "style="background-color:white;color:6C757D; ">Deaths</th>
 
 
-		<!-- <div class="my-4">
-			<h3 class="text-center text-uppercase">	india covid-19 live update </h3>
-		</div>
- -->
+
+				<tr>
+					<td class="bg-info " style="color:white;"><?php echo $coronaIndia['statewise'][0]['lastupdatedtime'] ?></td>
+					
+					<td class="bg-danger" style="color:white;"><?php echo $coronaIndia['statewise'][0]['confirmed'] ?></td>
+					<td class="bg-primary" style="color:white;"><?php echo $coronaIndia['statewise'][0]['active'] ?></td>
+					<td class="bg-success" style="color:white;"><?php echo $coronaIndia['statewise'][0]['recovered'] ?></td>
+					<td class="bg-secondary" style="color:white;"><?php echo $coronaIndia['statewise'][0]['deaths'] ?></td>
+
+			    </tr>
+				</thead>
+			</table>	
+</div>
+
+	<h3 class="text-uppercase text-center" style="background-color: #21D4FD;
+background-image: -webkit-linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
+background-image: -moz-linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
+background-image: -o-linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
+background-image: linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
+
+"> State-wise covid-19 cases in india</h3>
+
 		<div class="table-responsive">
 			
 			<table class="table table-striped text-center table-hover  " >
@@ -56,18 +106,11 @@
 
 
 
+				
 				<?php
 
-				$data=file_get_contents('https://api.covid19india.org/data.json');
-				$coronaIndia=json_decode($data,true);
 
-				// echo $coronaIndia['statewise'][1]['state'];
-
-				$totalStates= count($coronaIndia['statewise']);
-
-
-				$i=1;
-
+				$i=1;	
 				while ($i<$totalStates) 
 				{
 
@@ -85,12 +128,6 @@
 
 
 
-		<!-- 	echo $coronaIndia['statewise'][$i]['lastupdatedtime']."<br>";
-			echo $coronaIndia['statewise'][$i]['state']."<br>";
-			echo $coronaIndia['statewise'][$i]['confirmed']."<br>";
-			echo $coronaIndia['statewise'][$i]['active']."<br>";
-			echo $coronaIndia['statewise'][$i]['recovered']."<br>";
-			echo $coronaIndia['statewise'][$i]['deaths']."<br>"; -->
 
 			<?php
 					$i++;
@@ -107,7 +144,7 @@
 
 			  <!-- Copyright -->
 			  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-			     <a href="https://github.com/akm0786"target="_blank"> Developed By Abhishek Mishra </a>
+			    <a href="https://github.com/akm0786"target="_blank"> Developed By Abhishek Mishra </a>
 			  </div>
 			  <!-- Copyright -->
 
