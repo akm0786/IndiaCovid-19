@@ -143,8 +143,8 @@ background-image: linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
 			<footer class="page-footer font-small blue">
 
 			  <!-- Copyright -->
-			  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-			    <a href="https://github.com/akm0786"target="_blank"> Developed By Abhishek Mishra </a>
+			  <div class="footer-copyright text-center py-3">
+			    <a href="https://github.com/akm0786"target="_blank"> Dev by Abhishek Mishra </a>
 			  </div>
 			  <!-- Copyright -->
 
