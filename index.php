@@ -81,7 +81,7 @@ background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
 			</table>	
 </div>
 
-	<h3 class="text-uppercase text-center" style="background-color: #21D4FD;
+	<h3 class="text-uppercase text-center p-3" style="background-color: #21D4FD;
 background-image: -webkit-linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
 background-image: -moz-linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
 background-image: -o-linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
