@@ -13,10 +13,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>INDIA COVID 19</title>
+	<title > INDIA COVID 19</title>
 	<link rel="shortcut icon" type="image/png" href="images.jpg">
 	 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -82,7 +83,7 @@ background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
 			</table>	
 </div>
 
-	<h3 class="text-uppercase text-center p-3" style="background-color: #21D4FD;
+	<h3 class="text-uppercase p-3 text-center" style="background-color: #21D4FD;
 background-image: -webkit-linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
 background-image: -moz-linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
 background-image: -o-linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
@@ -90,9 +91,11 @@ background-image: linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
 
 "> State-wise covid-19 cases in india</h3>
 
+	<input class="p-3  text-center w-100" type="text"  placeholder="Enter State Name To Search.."id="Usearch" style="border:3px solid red; border-radius: 4px; font-weight: bold; color: green; font-size: 1.2rem; "  onkeyup="search()" >
+
 		<div class="table-responsive">
 			
-			<table class="table table-striped text-center table-hover  " >
+			<table class="table table-striped text-center table-hover  " id="TableId" >
 				<thead >
 				<tr>
 					<th class="text-capitalize "  style="background-color:white;color:#17A2B8; ">LastUpdateTime</th>		
@@ -145,7 +148,7 @@ background-image: linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
 
 			  <!-- Copyright -->
 			  <div class="footer-copyright text-center py-3">
-			    <a href="https://github.com/akm0786"target="_blank"> Dev by Abhishek Mishra </a>
+			    <a href="https://github.com/akm0786"target="_blank"> Developed By Abhishek Mishra </a>
 			  </div>
 			  <!-- Copyright -->
 
@@ -154,5 +157,38 @@ background-image: linear-gradient(90deg, #21D4FD 0%, #B721FF 100%);
 	</div>
 
 
+	<script>
+			
+	const search = () =>{
+
+		let userValue=document.getElementById('Usearch').value.toUpperCase();
+		console.log(userValue);
+		 let tableFetch=document.getElementById('TableId');
+
+		  let tableRow=tableFetch.getElementsByTagName('tr');
+
+		  for(var i=1;i<tableRow.length;i++)
+
+		  {
+		  	let tableData=tableRow[i].getElementsByTagName('td')[1];
+		  	
+		  	if(tableData)
+		  	{
+		  		let state=tableData.textContent || tableData.innerHTML;
+
+		  		if(state.toUpperCase().indexOf(userValue) >-1)
+		  		{
+		  			tableRow[i].style.display="";
+		  		}else{
+
+		  			tableRow[i].style.display="none";
+
+		  		}
+
+		  	}
+		  }
+	}
+
+	</script>
 </body>
 </html>
